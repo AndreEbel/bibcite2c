@@ -4,7 +4,7 @@ c = get_config()
 ntb = 'Untitled.ipynb'
 # Exporting your notebook to pdf
 c.NbConvertApp.notebooks = [ntb]
-c.Exporter.preprocessors = [ 'bibcite2c.BibTexPreprocessor' ]
+c.Exporter.preprocessors = [ 'bibcite2c.BibTexPreprocessor', 'pre_pymarkdown.PyMarkdownPreprocessor' ]
 c.NbConvertApp.export_format = 'pdf'
 # Extra parameters to remove the code cells (equivalent to --no-input)
 c.TemplateExporter.exclude_output_prompt = True 
