@@ -93,7 +93,7 @@ class BibTexPreprocessor(Preprocessor):
             else:
                 print('dont know what to do for sys.version_info <3')
         writer = BibTexWriter()
-        with open(filename, 'w') as bibfile:
+        with open(filename, 'w', encoding="utf-8") as bibfile:
             bibfile.write(writer.write(db))
 
     def preprocess(self, nb, resources):
