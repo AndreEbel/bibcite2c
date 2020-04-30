@@ -9,9 +9,8 @@ class BibTexPreprocessor(Preprocessor):
 
     def create_bibentry(self, refkey, reference):
         """
-        returns a string with a bibtex-entry from cite2c reference data.
+        returns a dict with a bibtex-entry from cite2c reference data.
         currently three common reference types are implemented: articles, books and chapter of books.
-        non-ascii characters are only checked for in autor, title and journal name
         Parameters
         ----------
         refkey: str
@@ -79,7 +78,7 @@ class BibTexPreprocessor(Preprocessor):
 
     def create_bibfile(self, filename):
         """
-        creates .bib with references from cite2c data in .ipynb JSON metadata
+        creates .bib with references from cite2c data in .ipynb JSON metadata using bibtexparser
         references must be places in self.references beforehand
         Parameters
         ----------
