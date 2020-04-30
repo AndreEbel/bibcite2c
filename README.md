@@ -20,4 +20,6 @@ run the following command in your notebook:
 ## Just a last word 
 Let's hope it may be useful to someone. 
 
+Only works for pdf export.
+
 
