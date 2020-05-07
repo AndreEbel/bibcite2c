@@ -27,6 +27,8 @@ class BibTexPreprocessor(Preprocessor):
             entry['ENTRYTYPE']  = "book"
         elif (reference["type"] == "chapter"):
             entry['ENTRYTYPE']  = "inbook"
+        elif (reference["type"] == "paper-conference"):
+            entry['ENTRYTYPE']  = "inproceedings"
         else:
             # default type is misc!
             entry['ENTRYTYPE']  = "misc"
@@ -56,6 +58,8 @@ class BibTexPreprocessor(Preprocessor):
         if ("container-title" in reference):
             if reference["type"] == "chapter":
                 entry['title']=reference["container-title"]
+            if reference["type"] == "paper-conference":
+                entry['booktitle']=reference["container-title"]
             else:
                 entry['journal']=reference["container-title"]
 
@@ -71,8 +75,9 @@ class BibTexPreprocessor(Preprocessor):
             entry['issue'] = reference["issue"]
         if ("DOI" in reference):
             entry['doi'] = reference["DOI"]
-        if ("URL" in reference):
-            entry['url'] = reference["URL"]
+        # remove URL because it is often wrong and makes bibliography ugly
+        #if ("URL" in reference):
+        #    entry['url'] = reference["URL"]
         # print(entry)
         return entry
 
