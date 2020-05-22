@@ -152,9 +152,10 @@ class BibTexPreprocessor(Preprocessor):
             replaced = None
             cell_code = "<div class=\"cite2c-biblio\"></div>"
             if cell_code in cell.source:
-                new_cell_code = r'\\bibliographystyle{unsrt} \n'
+                new_cell_code = r'\\renewcommand\\refname{} \n'
+                new_cell_code += r'\\bibliographystyle{unsrt} \n'
                 new_cell_code += r"\\bibliography{"
-                new_cell_code +=resources["unique_key"]+r"}"
+                new_cell_code += resources["unique_key"]+r"}"
                 
                 replaced = re.sub(cell_code, new_cell_code, cell.source)
                 # debugging
