@@ -7,10 +7,11 @@ The files are directly inspired from [jupyter-publication-scripts](https://githu
 Add citations and bibliography in your notebook using [cite2c](https://github.com/takluyver/cite2c) 
 
 ## Step 1
-add bibcite2c.py, python-markdown [preprocessor](https://github.com/ipython-contrib/jupyter_contrib_nbextensions/blob/master/src/jupyter_contrib_nbextensions/nbconvert_support/pre_pymarkdown.py) and jupyter_nbconvert_config.py in your directory.
-
-## Step 2
-modify the ntb variable in jupyter_nbconvert_config.py with your actual jupyter notebook name (with extension).
+add the preprocessors in your directory. 
+- bibcite2c.py for reference handling
+- pre_subsupmarkdown.py for handling superscript and subscript during converting markdown to latex and then to pdf
+- python-markdown [preprocessor](https://github.com/ipython-contrib/jupyter_contrib_nbextensions/blob/master/src/jupyter_contrib_nbextensions/nbconvert_support/pre_pymarkdown.py)
+- jupyter_nbconvert_config.py 
 
 ## Step 2
 run the following command in your notebook:   
