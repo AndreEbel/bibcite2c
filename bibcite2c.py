@@ -75,10 +75,15 @@ class BibTexPreprocessor(Preprocessor):
             entry['issue'] = reference["issue"]
         if ("DOI" in reference):
             entry['doi'] = reference["DOI"]
-        # remove URL because it is often wrong and makes bibliography ugly
+        ## remove URL because it is often wrong and makes bibliography ugly
         #if ("URL" in reference):
         #    entry['url'] = reference["URL"]
         # print(entry)
+        
+        ## replace the & by \& so it appears properly after pdf converting and does not make pdflatex crash...
+        for key in entry:
+            s = entry[key]
+            entry[key] = s.replace('&', '\&')
         return entry
 
     def create_bibfile(self, filename):
